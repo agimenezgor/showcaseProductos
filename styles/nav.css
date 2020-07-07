@@ -1,0 +1,40 @@
+.nav-list {
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    background-color: #6E6E6E;
+    color: white;
+    margin: 0; 
+}
+
+.nav-list-item {
+    list-style: none;
+    font-size: 2rem;  
+    cursor: pointer;
+}
+
+#titulo {
+    font-size: 3em;
+}
+
+.nav-list-item::after,
+.nav-list-item::before{
+    content: "";
+    width: 0%;
+    height: .1rem;
+    background-color: #DF7401;
+    display: block;
+    margin: auto;
+    transition: width .2s cubic-bezier(.56, 0, .98, .54);
+}
+.nav-list-item:hover::after,
+.nav-list-item:hover::before{
+    width: 100%;
+}
+.nav-list-item:hover {
+    color: #DF7401;
+}
+
+
+

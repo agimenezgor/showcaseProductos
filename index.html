@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/index.css" type="text/css">
+    <link rel="stylesheet" href="./styles/nav.css" type="text/css">
+    <link rel="stylesheet" href="./styles/body.css" type="text/css">
+    <link rel="stylesheet" href="./styles/footer.css" type="text/css">
+    <link rel="stylesheet" href="./styles/carrito.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <script src="./scripts/body.js"></script>
+
+    <title>Frutería Online</title>
+</head>
+<body onload="clean()">
+        <header>
+            <ul class="nav-list">
+                <li onclick="clean()" class="nav-list-item" id="titulo">
+                    Tu Frutero Online
+                </li>
+                <li onclick="frutas()" class="nav-list-item">
+                    Frutas
+                </li>
+                <li onclick="verduras()" class="nav-list-item">
+                    Verduras
+                </li>
+                <li onclick="carrito()" class="nav-list-item menu-carrito">
+                </li>
+            </ul>
+        </header>
+        <main class="portada"></main>
+        <footer>
+            <div class="foot">Copyright © 2020 Álvaro Giménez - Design: Álvaro Giménez</div>
+        </footer>
+</body>
+</html>

@@ -1,0 +1,7 @@
+body {
+    display: grid;
+    grid-template-rows:10vh 85vh 5vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nanum Gothic', sans-serif;
+}

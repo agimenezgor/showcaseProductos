@@ -30,12 +30,12 @@
 }
 
 .producto {
-    padding: 1em;
+    padding: 1.2em;
     display: flex;
     flex-direction: column;
     border: 0.1em solid #DF7401;
     border-radius: 1em;    
-    margin-top: 0.5em;
+    margin-top: 0.3em;
     margin-left: 0.5em;
     margin-right: 0.3em;
     cursor: grab;

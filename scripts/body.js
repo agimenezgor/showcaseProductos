@@ -1,4 +1,4 @@
-function producto(nombre, imagen, precioUnitario){
+function Product(nombre, imagen, precioUnitario){
     this.nombre = nombre;
     this.imagen = imagen;
     this.unidades = 1;
@@ -6,25 +6,25 @@ function producto(nombre, imagen, precioUnitario){
     this.precio = precioUnitario * this.unidades; 
 }
 
-var Naranja = new producto("Naranja", "frutas/Naranja.jpg", 1.33);
-var Pera = new producto("Pera", "frutas/Pera.jpg", 1.99);
-var Manzana = new producto("Manzana", "frutas/Manzana.jpg", 2.69);
-var Melon = new producto("Melón", "frutas/Melón.jpg", 2.49);
-var Fresa = new producto("Fresa", "frutas/Fresa.jpg", 6.50);
-var Melocoton = new producto("Melocotón", "frutas/Melocotón.jpg", 1.99);
-var Uva = new producto("Uva", "frutas/Uva.jpg", 5.98);
-var Limon = new producto("Limón", "frutas/Limón.jpg", 1.90);
-var arrayFrutas = new Array(Naranja, Pera, Manzana, Melon, Fresa, Melocoton, Uva, Limon);
+var Orange = new Product("Naranja", "frutas/Naranja.jpg", 1.33);
+var Pear = new Product("Pera", "frutas/Pera.jpg", 1.99);
+var Apple = new Product("Manzana", "frutas/Manzana.jpg", 2.69);
+var Melon = new Product("Melón", "frutas/Melón.jpg", 2.49);
+var Strawberry = new Product("Fresa", "frutas/Fresa.jpg", 6.50);
+var Peach = new Product("Melocotón", "frutas/Melocotón.jpg", 1.99);
+var Grape = new Product("Uva", "frutas/Uva.jpg", 5.98);
+var Lemon = new Product("Limón", "frutas/Limón.jpg", 1.90);
+var arrayFruits = new Array(Orange, Pear, Apple, Melon, Strawberry, Peach, Grape, Lemon);
 
-var Lechuga = new producto("Lechuga", "verduras/Lechuga.jpg", 3.99);
-var Puerro = new producto("Puerro", "verduras/Puerro.jpg", 5.49);
-var Tomate = new producto("Tomate", "verduras/Tomate.jpg", 3.55);
-var AlubiaRoja = new producto("Alubia roja", "verduras/Alubia roja.jpg", 7.46);
-var AlubiaNegra = new producto("Alubia negra", "verduras/Alubia negra.jpg", 11.96);
-var Pimiento = new producto("Pimiento italiano", "verduras/Pimiento italiano.jpg", 3.00);
-var Cebolla = new producto("Cebolla", "verduras/Cebolla.jpg", 1.75);
-var Calabacin = new producto("Calabacín", "verduras/Calabacín.jpg", 1.90);   
-var arrayVerduras = new Array(Lechuga, Puerro, Tomate, AlubiaRoja, AlubiaNegra, Pimiento, Cebolla, Calabacin);
+var Lettuce = new Product("Lechuga", "verduras/Lechuga.jpg", 3.99);
+var Leek = new Product("Puerro", "verduras/Puerro.jpg", 5.49);
+var Tomatoe = new Product("Tomate", "verduras/Tomate.jpg", 3.55);
+var RedBean = new Product("Alubia roja", "verduras/Alubia roja.jpg", 7.46);
+var BlackBean = new Product("Alubia negra", "verduras/Alubia negra.jpg", 11.96);
+var ItalianPepper = new Product("Pimiento italiano", "verduras/Pimiento italiano.jpg", 3.00);
+var Onion = new Product("Cebolla", "verduras/Cebolla.jpg", 1.75);
+var Zucchini = new Product("Calabacín", "verduras/Calabacín.jpg", 1.90);   
+var ArrayVegetables = new Array(Lettuce, Leek, Tomatoe, RedBean, BlackBean, ItalianPepper, Onion, Zucchini);
 
 const clean = () => {
     try {
@@ -40,30 +40,30 @@ const clean = () => {
     } 
 }
 
-const frutas = () => {
+const fruits = () => {
     try {
         document.querySelector('main.portada').innerHTML = ''
         document.querySelector('main.portada').innerHTML = `
-        <div class="frutas">
+        <div class="fruits">
             <div class="arrastra">Arrastra la imagen del producto para añadirlo al carrito</div>
             <div class="grilla"></div>
         </div>
         ` 
-        renderProductos(arrayFrutas);
+        renderProductos(arrayFruits);
     } catch (error) {   
     }
 } 
 
-const verduras = () => {
+const vegetables = () => {
     try {
         document.querySelector('main.portada').innerHTML = ''
         document.querySelector('main.portada').innerHTML = `
-        <div class="verduras">
+        <div class="vegetables">
             <div class="arrastra">Arrastra la imagen del producto para añadirlo al carrito</div>
             <div class="grilla"> 
         </div>
         ` 
-        renderProductos(arrayVerduras);
+        renderProductos(ArrayVegetables);
     } catch (error) {}
 }
 
@@ -232,7 +232,7 @@ function drop(ev){
     var esUnaVerdura = "verduras";
     
     if(data.indexOf(esUnaFruta) > 0){
-        for(const producto of arrayFrutas){
+        for(const producto of arrayFruits){
             var nombre = reemplazarLetras(producto.nombre);
             var resultado = data.indexOf(nombre);
             if(resultado > 0){
@@ -241,7 +241,7 @@ function drop(ev){
             }
         }
     }else{
-        for(const producto of arrayVerduras){
+        for(const producto of ArrayVegetables){
             var nombre = reemplazarLetras(producto.nombre);
             var resultado = data.indexOf(nombre);
             if(resultado > 0){
@@ -301,31 +301,31 @@ function agregarProducto(articulo, tipo){
         indice = 0;
         if(tipo == "frutas"){
             do{
-                if(arrayFrutas[indice].nombre == articulo){
+                if(arrayFruits[indice].nombre == articulo){
                     encontrado = true;
-                    ArrayCarrito.push(arrayFrutas[indice]);
+                    ArrayCarrito.push(arrayFruits[indice]);
                     document.querySelector('.menu-carrito').innerHTML = `<div class="nav-list-item menu-carrito" ondrop="drop(event)" ondragover="allowDrop(event)">Carrito (${ArrayCarrito.length})</div>`
                     ArrayCarrito[ArrayCarrito.length - 1].precio = ArrayCarrito[ArrayCarrito.length - 1].unidades * ArrayCarrito[ArrayCarrito.length - 1].precioUnitario;
                     compra.precioTotal = precioTotal(ArrayCarrito);
                     renderCarrito();
                 }
                 indice++;
-            }while(encontrado == false && indice < arrayFrutas.length);
+            }while(encontrado == false && indice < arrayFruits.length);
         }
         else{
             encontrado = false;
             indice = 0;
             do{
-                if(arrayVerduras[indice].nombre == articulo){
+                if(ArrayVegetables[indice].nombre == articulo){
                     encontrado = true;
-                    ArrayCarrito.push(arrayVerduras[indice]);
+                    ArrayCarrito.push(ArrayVegetables[indice]);
                     document.querySelector('.menu-carrito').innerHTML = `<div class="nav-list-item menu-carrito" ondrop="drop(event)" ondragover="allowDrop(event)">Carrito (${ArrayCarrito.length})</div>`
                     ArrayCarrito[ArrayCarrito.length - 1].precio = ArrayCarrito[ArrayCarrito.length - 1].unidades * ArrayCarrito[ArrayCarrito.length - 1].precioUnitario;
                     compra.precioTotal = precioTotal(ArrayCarrito);
                     renderCarrito();
                 }
                 indice++;
-            }while(encontrado == false || indice < arrayVerduras.length);
+            }while(encontrado == false || indice < ArrayVegetables.length);
         }
     }
 }
